@@ -1,5 +1,7 @@
   def destroy
-    @<%= instance_name %> = <%= class_name %>.find(params[:id])
     @<%= instance_name %>.destroy
-    redirect_to <%= items_url %>, :notice => "Successfully destroyed <%= class_name.underscore.humanize.downcase %>."
+    respond_to do |format|
+      format.html { redirect_to <%= items_url %> }
+      format.json { head :no_content }
+    end
   end

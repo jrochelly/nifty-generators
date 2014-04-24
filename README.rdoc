@@ -1,6 +1,7 @@
 = Nifty Generators
 
 A collection of useful Rails generator scripts for scaffolding, layout files, authentication, and more.
+=== This fork sets twitter bootstrap up. Making it easy to go on.
 
 
 == Setup

@@ -1,8 +1,11 @@
   def update
-    @<%= instance_name %> = <%= class_name %>.find(params[:id])
-    if @<%= instance_name %>.update_attributes(params[:<%= instance_name %>])
-      redirect_to <%= item_url %>, :notice  => "Successfully updated <%= class_name.underscore.humanize.downcase %>."
-    else
-      render :edit
+    respond_to do |format|
+      if @<%= instance_name %>.update(<%= instance_name %>_params)
+        format.html { redirect_to @<%= instance_name %>, notice: '<%= class_name %> was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @<%= instance_name %>.errors, status: :unprocessable_entity }
+      end
     end
   end

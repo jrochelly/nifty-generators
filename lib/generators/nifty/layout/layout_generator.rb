@@ -10,13 +10,19 @@ module Nifty
       def create_layout
         if options.haml?
           template 'layout.html.haml', "app/views/layouts/#{file_name}.html.haml"
-          copy_file 'stylesheet.sass', "public/stylesheets/sass/#{file_name}.sass"
         else
           template 'layout.html.erb', "app/views/layouts/#{file_name}.html.erb"
-          copy_file 'stylesheet.css', "public/stylesheets/#{file_name}.css"
         end
+        copy_file 'stylesheet.css.scss', "app/assets/stylesheets/#{file_name}.css.scss"
+        copy_file 'assets/application.css.scss', "app/assets/stylesheets/application.css.scss"
+        copy_file 'assets/bootstrap.min.css', "app/assets/stylesheets/bootstrap.min.css"
+        copy_file 'assets/application.js', "app/assets/javascripts/application.js"
+        copy_file 'assets/bootstrap.min.js', "app/assets/javascripts/bootstrap.min.js"
+        copy_file 'assets/es5-shim.js', "app/assets/javascripts/es5-shim.js"
+        copy_file 'assets/json3.min.js', "app/assets/javascripts/json3.min.js"
         copy_file 'layout_helper.rb', 'app/helpers/layout_helper.rb'
         copy_file 'error_messages_helper.rb', 'app/helpers/error_messages_helper.rb'
+        directory 'assets/fonts', "app/assets/fonts/"
       end
 
       private

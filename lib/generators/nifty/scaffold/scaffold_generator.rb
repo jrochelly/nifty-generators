@@ -166,6 +166,14 @@ module Nifty
         plural_name.camelize
       end
 
+      def attributes_allowed
+        attrs = ""
+        for attributes in model_attributes
+          attrs += ":#{attributes.name}, "
+        end
+        return attrs[0, attrs.length-2]
+      end
+
       def instance_name
         if @namespace_model
           singular_name.gsub('/','_')

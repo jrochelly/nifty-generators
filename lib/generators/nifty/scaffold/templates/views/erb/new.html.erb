@@ -1,7 +1,3 @@
-<%% title "New <%= singular_name.titleize %>" %>
+<h1 class="text-center">New <%= singular_name.titleize %></h1>
 
 <%= render_form %>
-
-<%- if action? :index -%>
-<p><%%= link_to "Back to List", <%= items_path %> %></p>
-<%- end -%>
