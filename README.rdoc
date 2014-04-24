@@ -10,13 +10,15 @@ A collection of useful Rails generator scripts for scaffolding, layout files, au
 
 Add the gem to your Gemfile.
 
-  gem "nifty-generators", :group => :development
+  gem "nifty-generators", :git => "git://github.com/jrochelly/nifty-generators.git"
 
 Then you can run any of the included generators.
 
   rails g nifty:scaffold Recipe name:string index new
 
 === Rails 2
+
+==== Important: Rails 2 doesn't have twitter bootstrap yet.
 
 First install the gem.
 
